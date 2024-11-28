@@ -3,11 +3,13 @@ import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom"
 import { App } from "../App"
 import { AuthPage, Logout, useAuth } from "../modules/auth";
 import { ErrorsPage } from "../modules/errors/ErrorsPage";
+import { PrivateRoutes } from "./PrivateRoutes";
 
 const { BASE_URL } = import.meta.env
 
 const AppRoutes: FC = () => {
     const { currentUser } = useAuth()
+
     return (
         <BrowserRouter basename={BASE_URL}>
             <Routes>
@@ -16,7 +18,7 @@ const AppRoutes: FC = () => {
                     <Route path="logout" element={<Logout />} />
                     {currentUser ? (
                         <>
-                            <Route path="/*" />
+                            <Route path="/*" element={<PrivateRoutes />} />
                             <Route index element={<Navigate to='/dashboard' />} />
                         </>
                     ) : (
@@ -25,7 +27,6 @@ const AppRoutes: FC = () => {
                             <Route path="*" element={<Navigate to="/auth" />} />
                         </>
                     )}
-                    <Route path="*" />
                 </Route>
             </Routes>
         </BrowserRouter>

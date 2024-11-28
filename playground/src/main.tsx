@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client"
 import axios from "axios"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
 import './_metronic/assets/sass/style.react.scss'
 import './_metronic/assets/fonticon/fonticon.css'
@@ -24,7 +24,7 @@ if (container) {
       <AuthProvider>
         <AppRoutes />
       </AuthProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   )
 }
