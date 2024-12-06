@@ -19,13 +19,13 @@ const ProductsTable = () => {
         columns,
         getCoreRowModel: getCoreRowModel(),
     })
-    console.log('i am in product table')
+
     return (
 
         <KTCardBody className='py-4'>
             <div className='table-responsive'>
                 <table
-                    id='kt_table_users'
+                    id='tblProducts'
                     className='table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer'
                 >
                     <thead>

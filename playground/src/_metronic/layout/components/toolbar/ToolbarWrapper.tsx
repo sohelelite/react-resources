@@ -13,7 +13,7 @@ const ToolbarWrapper = () => {
     config.app?.toolbar?.layout,
     config.app?.pageTitle?.display
   )
-  console.log('i m in toolbar')
+
   return (
     <div
       id='kt_app_toolbar'

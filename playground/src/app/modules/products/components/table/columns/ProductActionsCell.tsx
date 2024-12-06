@@ -10,7 +10,7 @@ type Props = {
     id: ID
 }
 
-const ProductActionCell: FC<Props> = ({ id }) => {
+const ProductActionsCell: FC<Props> = ({ id }) => {
     const { setItemIdForUpdate } = useListView()
     const { query } = useQueryResponse()
     const queryClient = useQueryClient()
@@ -28,7 +28,7 @@ const ProductActionCell: FC<Props> = ({ id }) => {
         onSuccess: () => {
             // ✅ update detail view directly
             queryClient.invalidateQueries({
-                queryKey: [`${QUERIES.PRODUCTS_LIST}-${query}`]
+                queryKey: [`${QUERIES.USERS_LIST}-${query}`]
             })
         }
     })
@@ -72,4 +72,4 @@ const ProductActionCell: FC<Props> = ({ id }) => {
     </>;
 }
 
-export { ProductActionCell }
+export { ProductActionsCell }

@@ -1,7 +1,8 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Product } from "../../../core/_models";
 import { ProductCustomHeader } from "./ProductCustomHeader";
-import { ProductActionCell } from "./ProductActionsCell";
+import { ProductActionsCell } from "./ProductActionsCell";
+
 
 const productsColumns: ColumnDef<Product>[] = [
     {
@@ -20,10 +21,12 @@ const productsColumns: ColumnDef<Product>[] = [
         accessorKey: 'category'
     },
     {
-        header: (props) => <ProductCustomHeader tableProps={props} title="Action" className="min-w-125px" />,
+        header: (props) => (
+            <ProductCustomHeader tableProps={props} title='Actions' className='text-end min-w-100px' />
+        ),
         id: 'actions',
-        cell: (info) => <ProductActionCell id={info.row.original.id} />
-    }
+        cell: (info) => <ProductActionsCell id={info.row.original.id} />,
+    },
 ]
 
 export { productsColumns }

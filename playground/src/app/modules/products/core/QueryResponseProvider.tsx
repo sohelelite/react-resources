@@ -35,7 +35,7 @@ const useQueryResponse = () => useContext(QueryResponseContext)
 
 const useQueryResponseData = () => {
     const { response } = useQueryResponse()
-    console.log(response)
+
     if (!response) {
         return []
     }
