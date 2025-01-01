@@ -3,7 +3,7 @@ import { ID, KTIcon, QUERIES } from "../../../../../../_metronic/helpers";
 import { useListView } from "../../../core/ListViewProvider";
 import { useQueryResponse } from "../../../core/QueryResponseProvider";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { MenuComponent } from "../../../../../../_metronic/assets/ts/components";
+import { DrawerComponent, MenuComponent } from "../../../../../../_metronic/assets/ts/components";
 import { deleteProduct } from "../../../core/_requests";
 
 type Props = {
@@ -21,6 +21,8 @@ const ProductActionsCell: FC<Props> = ({ id }) => {
 
     const openEditModal = () => {
         setItemIdForUpdate(id)
+        const drawer = DrawerComponent.getInstance('kt_drawer_product')
+        drawer?.show()
     }
 
     const deleteItem = useMutation({
@@ -34,6 +36,7 @@ const ProductActionsCell: FC<Props> = ({ id }) => {
     })
 
     return <>
+
         <a
             href='#'
             className='btn btn-light btn-active-light-primary btn-sm'
